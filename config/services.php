@@ -31,9 +31,10 @@ return [
     ],
 
     'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://127.0.0.1:8000/',
+        //'client_id' =>'158585591333-mfb9anhv36eesst82qgje7l52bqrivh2.apps.googleusercontent.com',
+        'client_id' =>'158585591333-mfb9anhv36eesst82qgje7l52bqrivh2',
+        'client_secret' => '_NcDTx4eM2FlxEwXz2i2SI3m',
+        'redirect' => 'https://laravel-social-testing-2020.herokuapp.com/login/callback',
     ],
 
 ];
