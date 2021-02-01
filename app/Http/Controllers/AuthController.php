@@ -10,15 +10,7 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthController extends Controller
 {
 
-    public function index(){
-       if(\auth()->guest()){
-           return 'HOME PAGE';
-       }else{
-           return  'adsdpioagsdpasd';
-       }
 
-
-    }
 
 
 
@@ -28,8 +20,10 @@ class AuthController extends Controller
 
     public function handleProviderCallBack(){
         $user=Socialite::driver('google')->user();
-        $this->_registerOrLoginUser($user);
-        return redirect()->route('home');
+
+        dump($user);
+//        $this->_registerOrLoginUser($user);
+//        return redirect()->route('home');
 
     }
 
