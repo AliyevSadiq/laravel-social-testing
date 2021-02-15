@@ -23,8 +23,7 @@ class AuthController extends Controller
 
         $user=Socialite::driver('google')->user();
 
-        dump($user);
-        dump($request->accessToken);
+        dump($user->token);
 //        $this->_registerOrLoginUser($user);
 //        return redirect()->route('home');
 
