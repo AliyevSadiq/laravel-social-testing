@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -23,7 +24,21 @@ class AuthController extends Controller
 
         $user=Socialite::driver('google')->user();
 
-        dump($user->token);
+
+        $params = [
+            'grant_type' => 'social',
+            'client_id' => env('GOOGLE_CLIENT_ID'), // it should be password grant client
+            'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+            'accessToken' => $user->token, // access token from provider
+            'provider' => 'google', // i.e. facebook
+        ];
+        $request->request->add($params);
+
+        $requestToken = Request::create("oauth/token", "POST");
+
+        $response = Route::dispatch($requestToken);
+        dump(json_decode((string) $response->content(), true));
+
 //        $this->_registerOrLoginUser($user);
 //        return redirect()->route('home');
 
