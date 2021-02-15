@@ -23,7 +23,7 @@ class AuthController extends Controller
 
 
         $user=Socialite::driver('google')->user();
-
+    dump($user->token,111111);
 
         $params = [
             'grant_type' => 'social',
@@ -37,7 +37,7 @@ class AuthController extends Controller
         $requestToken = Request::create("oauth/token", "POST");
 
         $response = Route::dispatch($requestToken);
-        dump(json_decode((string) $response->content(), true));
+        dump(json_decode((string) $response->content(), true),2222222);
 
 //        $this->_registerOrLoginUser($user);
 //        return redirect()->route('home');
