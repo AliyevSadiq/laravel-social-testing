@@ -19,11 +19,12 @@ class AuthController extends Controller
     }
 
     public function handleProviderCallBack(Request $request){
+
+
+        $user=Socialite::driver('google')->user();
+
+        dump($user);
         dump($request->accessToken);
-
-        //$user=Socialite::driver('google')->user();
-
-        //dump($user);
 //        $this->_registerOrLoginUser($user);
 //        return redirect()->route('home');
 
